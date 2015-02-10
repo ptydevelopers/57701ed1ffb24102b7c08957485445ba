@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>  
+            CAISA
+        </title>
+        <!-- start: Meta -->
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="PAO Systems by Miguel Veces">
+        <meta name="keyword" content="Sistema de Planillas CAISA S.A. ">
+        <!-- end: Meta -->
+
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- end: Mobile Specific -->
+
+        <!-- start: CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="css/style.min.css" rel="stylesheet">
+	<link href="css/style-responsive.min.css" rel="stylesheet">
+	<link href="css/retina.css" rel="stylesheet">
+	<!-- end: CSS -->
+    </head>
+<body>
+	<div class="container-fluid-full">
+		<div class="row-fluid">	
+			<div class="row-fluid">
+				<div class="login-box">
+					<h2>Ingresar al Sistema</h2>
+					<form id="login">
+						<fieldset>
+							<select class="input-xlarge span12" name="ddlCompany" id="ddlCompany"></select>
+							<input class="input-large span12" name="txtUser" id="txtUser" type="text" placeholder="Usuario"required  />
+							<input class="input-large span12" name="txtPass" id="txtPass" type="password" placeholder="Contrasena" required />
+							<div id="success"></div>
+							<div class="clearfix"></div> 
+							<input class="btn btn-primary span12" name="btnEnter" id="btnEnter" type="submit" value="Entrar" />
+						</fieldset>	
+					</form>
+				</div><!--/span-->
+			</div><!--/row-->
+		</div><!--/fluid-row-->	
+	</div><!--/.fluid-container-->
+	<!-- start: JavaScript-->
+	<script src="js/jquery-1.9.1.min.js"></script>
+
+	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="js/caisa/iniciosesion.js"></script> 
+	<!-- end: JavaScript-->
+</body>
+</html>
