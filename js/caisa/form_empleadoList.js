@@ -18,7 +18,9 @@ $(function() {
 						data.info[i].apellido,
 						data.info[i].cedula,
 						data.info[i].seguro_social,
-						'<a class="btn btn-info" href="form_empleadoEdit.html?id='+data.info[i].id_empleado+'"><i class="icon-edit"></i></a>'
+						'<a class="btn btn-info" href="form_empleadoEdit.html?id='+data.info[i].id_empleado+'"><i class="icon-edit"></i></a>',
+                                                //'<a class="btn btn-info" href="form_descuento_ingreso_x_empleado.html?id='+data.info[i].id_empleado+'"><i class="icon-edit"></i></a>',
+                                                 '<b><a href="form_descuento_ingreso_x_empleado.html?id='+data.info[i].id_empleado+' class="btn btn-success" role="button">Ir a Descuento/Ingreso </a></b>'
 						]);										
 					} // End For
 

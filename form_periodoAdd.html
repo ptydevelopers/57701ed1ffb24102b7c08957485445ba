@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
         <meta name="description" content="">
-        <meta name="author" content="PAO Systems by Miguel Veces">
+        <meta name="author" content="PAO Systems">
         <meta name="keyword" content="Sistema de Planillas CAISA S.A. ">
         <!-- end: Meta -->
 
@@ -47,55 +47,85 @@
 							<div class="row-fluid">
 								<div class="box span12">
 									<div class="box-header">
-										<h2><i class="icon-edit"></i>Mantenimiento de Usuario</h2>
+										<h2><i class="icon-edit"></i>Mantenimiento de Periodos</h2>
 										<div class="box-icon">
 											
 										</div>
 									</div>
 									<div class="box-content">
-										<form id="form_usuario" class="form-horizontal">
+										<form id="form_empresa" class="form-horizontal">
 											<fieldset>
 											 <div id="success"></div>
 											  <div class="control-group">
-												<label class="control-label" for="txtUser">Nombre Usuario</label>
+												<label class="control-label" for="txtYearFiscal">Año Fiscal</label>
 												
 												<div class="controls">
-												  <input class="input-xlarge " name="txtUser" id="txtUser" type="text" required>
+												  <input class="input-xlarge " name="txtYearFiscal" id="txtYearFiscal" type="text" required>
+												</div>
+											  </div>
+											  
+											    <div class="control-group">
+												<label class="control-label" for="ddlPayFrecuencia">Frecuencia de Pago</label>
+												
+												<div class="controls">
+												  <select class="input-xlarge" name="ddlPayFrecuencia" id="ddlPayFrecuencia">
+													<option value="0">SEMANAL</option>
+													<option value="1">QUINCENAL</option>
+													<option value="3">MENSUAL</option>
+												  </select>
 												</div>
 											  </div>
 											  
 											 <div class="control-group">
-												<label class="control-label" for="txtPass">Contrasena</label>
+												<label class="control-label" for="txtNumberPeriodo">Numero de Periodo</label>
 												
 												<div class="controls">
-												  <input class="input-xlarge " name="txtPass" id="txtPass" type="password" required>
-                                                                                                  <!--<input class="input-large span" name="txtPass" id="txtPass" type="password" placeholder="Contrasena" required />-->
+												  <input class="input-xlarge " name="txtNumberPeriodo" id="txtNumberPeriodo" type="text" required>
 												</div>
 											  </div>
+											   <div class="control-group">
+											  	<div class="row-fluid span5 control-group">
+															<label class="control-label" for="txtDatePay">Fecha de Pago</label>
+														<div class="controls">
+															<input class="input span10 datepicker" id="txtDatePay" name="txtDatePay" type="text" >
+															<button class="btn btn-success span2" disabled="true"><i class="icon-calendar"></i></button>
+														</div>
+													</div>
+													</div>
 											  
-											  <div class="control-group">
-												<label class="control-label" for="ddlRoles">Roles</label>
+												<div class="row-fluid">
+												<div class="row-fluid span control-group">
+															<label class="control-label" for="txtPeriodo">Proximo Periodo</label>
+														
+													</div>
+													<div class="row-fluid span5 control-group">
+															<label class="control-label" for="txtDateD">Desde</label>
+														<div class="controls">
+															<input class="input span10 datepicker" id="txtDateD" name="txtDateD"  type="text" >
+															<button class="btn btn-success span2" disabled="true"><i class="icon-calendar"></i></button>
+														</div>
+													</div>
+													<div class="row-fluid span5 control-group">
+															<label class="control-label" for="txtDateH">Hasta</label>
+														<div class="controls">
+															<input class="input span10 datepicker" id="txtDateH" name="txtDateH"  type="text" >
+															<button class="btn btn-success span2" disabled="true"><i class="icon-calendar"></i></button>
+															
+														</div>
+													</div>
+												</div>									
+											    <div class="control-group">
+												<label class="control-label" for="txtSecuence">Secuencia</label>
 												
 												<div class="controls">
-												  <select class="input-xlarge" name="ddlRoles" id="ddlRoles">
-													
-												  </select>
+												  <input class="input-xlarge " name="txtSecuence" id="txtSecuence" type="text" >
 												</div>
-											  </div>
+											  </div>						  
 											  
-											  <div class="control-group">
-												<label class="control-label" for="ddlStates">Estados</label>
-												
-												<div class="controls">
-												  <select class="input-xlarge "  name="ddlStates" id="ddlStates">
-												
-												  </select>
-												</div>
-											  </div>
-											
+																					
 											 <div class="form-actions">
 											    <input class="btn btn-primary" name="btnGuardar" id="btnGuardar" type="submit" value="Guardar" />
-												<a href="form_usuarioList.html" class="btn" role="button">Cancel</a>
+												<a href="form_empresaList.html" class="btn" role="button">Cancel</a>
 											  </div>
 											</fieldset>
 										
@@ -115,7 +145,7 @@
     
     <!-- start: JavaScript-->
     <script src="js/jquery-1.9.1.min.js"></script>
-
+	
     <script src="js/jquery-migrate-1.0.0.min.js"></script>	
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>	
     <script src="js/jquery.ui.touch-punch.js"></script>	
@@ -151,10 +181,9 @@
     <script src="js/retina.js"></script>
     <script src="js/jquery.placeholder.min.js"></script>
     <script src="js/wizard.min.js"></script>
-   	<script src="js/caisa/header.js"></script>
 	<script src="js/caisa/menu.js"></script>
 	<script src="js/caisa/footer.js"></script>
-	<script src="js/caisa/form_usuarioAdd.js"></script>
+	<script src="js/caisa/form_periodoAdd.js"></script>
     <script src="js/core.min.js"></script>	
     <script src="js/charts.min.js"></script>	
     <script src="js/custom.min.js"></script>
