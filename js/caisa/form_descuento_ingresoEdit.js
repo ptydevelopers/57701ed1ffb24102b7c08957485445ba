@@ -1,14 +1,28 @@
 $(function() {
+     var id=getUrlVars()["id"];
+
+	
+	function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+			});
+		  return vars;
+	}
+    
 		$.ajax({
 			url: "./bin/form_descuento_ingresoEdit.php",
 			type: "GET",
+                        data: "id=" + id,
 			cache: false,
 			crossDomain: false,
 			success: function(data) { //Si se ejecuta correctamente
 				if(data.status == 1)
 				{
-					  $('#ddlRoles').append(data.roles);
-					  $('#ddlStates').append(data.states);
+					 $('#txtCodDesIngre').val(data.info[0].cod_descuento_ingreso);
+							$('#txtNameDesIngre').val(data.info[0].nombre_descuento_ingreso);
+							$('select[name="ddlTypeDesIngre"]').find('option[value="'+data.info[0].tipo+'"]').attr("selected",true);
+                                                         $('#txtNumBank').val(data.info[0].numero_cuenta);
 				}
 
 			},
@@ -28,10 +42,10 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var user = $("input#txtUser").val();
-            var pass = $("input#txtPass").val();
-			var roles = $("select#ddlRoles").val();
-			var states = $("select#ddlStates").val();
+             var coddesingre = $("input#txtCodDesIngre").val();
+            var namedesingre = $("input#txtNameDesIngre").val();
+			var typedesingre = $("select#ddlTypeDesIngre").val();
+			 var numbank = $("input#txtNumBank").val();
 			
 			
             //alert(datetermination);
@@ -44,10 +58,11 @@ $(function() {
                 url: "./bin/form_descuento_ingresoEdit.php",
                 type: "POST",
                 data: {
-                    user: user,
-                    pass: pass,
-					roles: roles,
-                    states: states
+                    id:id,
+                    coddesingre: coddesingre,
+                    namedesingre: namedesingre,
+                    typedesingre: typedesingre,
+                    numbank: numbank
                 },
                 cache: false,
 				crossDomain: false,

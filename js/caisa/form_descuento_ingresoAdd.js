@@ -1,23 +1,5 @@
 $(function() {
-		$.ajax({
-			url: "./bin/form_descuento_ingresoAdd.php",
-			type: "GET",
-			cache: false,
-			crossDomain: false,
-			success: function(data) { //Si se ejecuta correctamente
-				if(data.status == 1)
-				{
-					  $('#ddlRoles').append(data.roles);
-					  $('#ddlStates').append(data.states);
-				}
-
-			},
-			error: function(data){
-			 //En caso de error mostramos una ventan a de error.
-			//$('#msjError').popup( "open" );
-			}
-		 
-		})	
+		
 	
 	$("input,select,textarea").jqBootstrapValidation({
         preventSubmit: true,
@@ -28,10 +10,10 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var user = $("input#txtUser").val();
-            var pass = $("input#txtPass").val();
-			var roles = $("select#ddlRoles").val();
-			var states = $("select#ddlStates").val();
+            var coddesingre = $("input#txtCodDesIngre").val();
+            var namedesingre = $("input#txtNameDesIngre").val();
+			var typedesingre = $("select#ddlTypeDesIngre").val();
+			 var numbank = $("input#txtNumBank").val();
 			
 			
             //alert(datetermination);
@@ -44,10 +26,10 @@ $(function() {
                 url: "./bin/form_descuento_ingresoAdd.php",
                 type: "POST",
                 data: {
-                    user: user,
-                    pass: pass,
-					roles: roles,
-                    states: states
+                    coddesingre: coddesingre,
+                    namedesingre: namedesingre,
+                    typedesingre: typedesingre,
+                    numbank: numbank
                 },
                 cache: false,
 				crossDomain: false,

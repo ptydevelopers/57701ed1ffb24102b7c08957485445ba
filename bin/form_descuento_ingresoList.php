@@ -33,7 +33,7 @@ else
         if($result!=false)
          {
 		    header('Content-type: application/json');
-			if($result[0]['id_usuario']==null)
+			if($result[0]['id_descuento_ingreso']==null)
 			{
 				$json = array("status" => 0, "info" => $result);
 				

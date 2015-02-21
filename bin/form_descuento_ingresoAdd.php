@@ -8,37 +8,24 @@ $wsdl= "http://". $_SERVER['SERVER_NAME']."/demos/WSCaisa/MyService.php?wsdl";
 //Create object that referer a web services 
 $client = new nusoap_client($wsdl,true); 
 $result="";
-$resultRoles="";
-$resultStates="";
+
 $param = array(); 
 $connect=mysqli_connect("localhost","UserCaisa","UserCaisa","planillas");
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    // Get data
-    $cod_des_inge = isset($_POST['user']) ? mysqli_real_escape_string($connect, $_POST['user']) :  "";
-	$nombre_des_ingre = isset($_POST['pass']) ? mysqli_real_escape_string($connect, $_POST['pass']) :  "";
-	$tipo = isset($_POST['roles']) ? mysqli_real_escape_string($connect, $_POST['roles']) :  "";
-	$num_cta = isset($_POST['states']) ? mysqli_real_escape_string($connect, $_POST['states']) :  "";
+    // Get data      
+        $cod_descuento_ingreso = isset($_POST['coddesingre']) ? mysqli_real_escape_string($connect, $_POST['coddesingre']) :  "";
+	$nombre_descuento_ingreso = isset($_POST['namedesingre']) ? mysqli_real_escape_string($connect, $_POST['namedesingre']) :  "";
+	$tipo = isset($_POST['typedesingre']) ? mysqli_real_escape_string($connect, $_POST['typedesingre']) :  "";
+	$numero_cuenta = isset($_POST['numbank']) ? mysqli_real_escape_string($connect, $_POST['numbank']) :  "";
+        $id_usuario= isset($_SESSION['id_usuario']) ? mysqli_real_escape_string($connect, $_SESSION['id_usuario']) :  "";
     //Give it value at parameter 
-    $param = array('id_rol' => $id_rol,'nombre_usuario' => $nombre_usuario,'pwd' => $pwd,'id_estado_usuario' => $id_estado_usuario); 
-	$result = $client->call('AddUser',$param,'','','',true);
+    $param = array('cod_descuento_ingreso' => $cod_descuento_ingreso,'nombre_descuento_ingreso' => $nombre_descuento_ingreso,'tipo' => $tipo,'numero_cuenta' => $numero_cuenta,'id_usuario' =>$id_usuario); 
+	$result = $client->call('AddDescuento_Ingreso',$param,'','','',true);
 
 }
 else
 {
-	$roles = $client->call('GetAllRoles',$param,'','','',true);
-	foreach($roles as $rol){ 
-		$resultRoles.='<option value='.$rol['id_rol'].'>'.$rol['nombre_rol'].'</option>';
-	} 
-	
-	$states = $client->call('GetAllStatesUsers',$param,'','','',true); 
-	foreach($states as $state){ 
-		$resultStates.='<option value='.$state['id_estado_usuario'].'>'.$state['nombre_estado_usuario'].'</option>';
-	} 
- header('Content-type: application/json');
- $json = array("status" => 1, "roles" => $resultRoles, "states" => $resultStates);
- echo json_encode($json);
- exit();
-	
+
 }
 
 // fault if any
